@@ -1,0 +1,28 @@
+Tietokantani kuvaa ammattitason jalkapallo turnauksia. Tietokantaa käytetään joukkueiden, pelaajien, matsien ja kausien hallintaan, sekä pelaajien suoriutumisia.
+
+Kohteita on
+Joukkue: nimi, kotimaa, perustamisvuosi, {|joukkue_id|} 
+Liiga: nimi, taso, {|liiga_id|}
+Pelaaja: Nimi (etu ja sukunimi), rooli (esim. laitapuolustaja), pelinumero, {|pelaaja_id|}
+Ottelu: päivämäärä, tulos, {|ottelu_id|}
+Kausi: nimi, vuosi, {|kausi_id|}
+
+Seurataan pelaajien tuloksia
+PelaajaOttelu: ({|ottelu_id, pelaaja_id|}, maalit, peliaika, syöttöpisteet, torjunnat, aiheutetut rangaistukset, riistot, ) jne
+
+pidetään kirjaa tuloksista
+JoukkueOttelu: ({|ottelu_id, joukkue_id|}, maalit, koti/vieras)
+
+
+Suhteita kohteilla olisi
+Pelaaja 1..1 <on osana> 11..n joukkue
+
+joukkue 1..n <kuuluu> 1..1 liiga
+
+Joukkue 0..n <kamppailee> 2..2 ottelu
+// jokaisessa ottelussa on 2 joukkuetta ja joukkueen pelin tulokset tallennetaan JoukkueOtteluun
+
+Ottelu 1..1 <kuuluu> 1..n Kausi
+
+Pelaaja 0..n <suoritui> 1..m Ottelu 
+// tallennetaan pelaajan yksilö suoritukset otteluista PelaajaOtteluun
