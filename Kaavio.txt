@@ -1,0 +1,28 @@
+Pelaaja ({|pelaaja_id|}, etunimet, sukunimi, joukkue_id)  \
+Joukkue ({|joukkue_id|}, nimi, kotimaa, perustamisvuosi)  \
+Kisa({|kisa_id|}, taso, nimi)  \
+Ottelu ({|ottelu_id|}, pvm, lokaatio, kausi_id)  \
+Kausi ({|kausi_id|}, vuosi)  \
+
+JoukkueKilpailu ({|kisa_id|}, {|joukkue_id|})
+JoukkueKilpailu.kilpailu_id -> Kilpailu.kilpailu_id  \
+JoukkueKilpailu.joukkue_id -> Joukku.joukkue_id  \
+
+PelaajanSuoritus ({|pelaaja_id|}, {|ottelu_id|},maalit, 
+rangaistukset, torjunnat, pelipaikka, syöttöpisteet)  \
+
+PelaajanSuoritus.pelaaja_id -> Pelaaja.pelaaja_id  \
+PelaajanSuoritus.ottelu_id -> Ottelu.ottelu_id  \
+
+
+Ottelusuoritus ({|joukkue_id|}, {|ottelu_id|}, 
+maalit, koti_vieras)  \
+
+Ottelusuoritus.joukkue_id -> Joukkue.juokkue_id  \
+Ottelusuoritus.ottelu_id -> Ottelu.ottelu_id  \
+
+
+Pelaaja.joukkue_id -> Joukkue.joukkue_id  \
+Ottelu.kausi_id -> Kausi.kausi_id  \
+
+
